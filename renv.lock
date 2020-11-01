@@ -1,0 +1,32 @@
+{
+  "R": {
+    "Version": "4.0.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
+  "Packages": {
+    "renv": {
+      "Package": "renv",
+      "Version": "0.12.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7340c71f46a0fd16506cfa804e224e44"
+    },
+    "sarcasm": {
+      "Package": "sarcasm",
+      "Version": "0.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "sarcasm",
+      "RemoteUsername": "awong234",
+      "RemoteRef": "master",
+      "RemoteSha": "8e8f54c1c97923139dfa89582e427915a10eb0e4",
+      "Hash": "893241da15ce7b1ac12890730b5a7e55"
+    }
+  }
+}
