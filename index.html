@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<meta charset='UTF-8'>
+<head>
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme">
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <style>
+        .boo {
+            width: 100px;
+            height: 100px;
+        }
+        .boobox{
+            border: 1px solid red;
+        }
+        .reveal code {
+            font-family: "Fira Code", "Consolas";
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>{sarcasm}</h1>
+            </section>
+            <section>
+                <h1>Testing boo</h1>
+                <div class='boobox'>
+                    <img class='boo' src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+                    <p>Test text</p>
+                </div>
+            </section>
+            <section>
+                <h1>
+                    What the heck is this
+                </h1>
+            </section>
+            <section>
+                <h1>
+                    Outline
+                </h1>
+            </section>
+            <section>
+                <h1>
+                    <code>lapply</code>
+                </h1>
+            </section>
+        </div>
+    </div>
+    <script>
+        Reveal.initialize({
+            plugins: [RevealMarkdown]
+        });
+
+        textTransform = function(text) {
+            let result = '';
+
+            for (let letter of text) {
+                test = Math.round(Math.random())
+                if (test === 1) {
+                    letter = letter.toUpperCase()
+                    result += letter
+                } else {
+                    letter = letter.toLowerCase()
+                    result += letter
+                }
+            }
+            return result
+        }
+
+        $(document).ready(function() {
+            $(".boobox").mouseenter(function() {
+                $("img").attr('src', '/assets/img/booleft.gif')
+            });
+            $(".boobox").mouseleave(function() {
+                $("img").attr('src', '/assets/img/boo.png')
+            });
+            $(".boobox p").mouseenter(function() {
+                $(this).data('defaultText', $(this).text())
+                $(this).text(textTransform($(this).text()))
+            });
+            $(".boobox p").mouseleave(function() {
+                $(this).text($(this).data("defaultText"))
+            })
+        });
+    </script>
+</body>
