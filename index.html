@@ -1,90 +1,233 @@
 <!DOCTYPE html>
 <meta charset='UTF-8'>
+
 <head>
-    <link rel="stylesheet" href="reveal.js/dist/reset.css">
-    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme">
-    <script src="reveal.js/dist/reveal.js"></script>
-    <script src="reveal.js/plugin/markdown/markdown.js"></script>
-    <script src="jquery/jquery.js"></script>
-    <style>
-        .boo {
-            width: 100px;
-            height: 100px;
-        }
-        .boobox{
-            border: 1px solid red;
-        }
-        .reveal code {
-            font-family: "Fira Code", "Consolas";
-        }
-    </style>
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="highlightjs/dracula.css">
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="jquery/jquery.js"></script>
+  <style>
+    .boo {
+      width: 100px;
+      height: 100px;
+    }
+
+    .boobox {
+      border: 1px solid red;
+    }
+
+    .reveal code {
+      font-family: "Fira Code", "Consolas";
+    }
+
+    #dog-div {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      width: 200px;
+      overflow: auto;
+    }
+    #dog-div::before {
+        content: " ";
+        border: solid 5px white;
+        border-right: 0px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: .4em;
+        right: 0;
+    }
+    #dog-div::after {
+      content: " ";
+      border: solid 5px white;
+      border-left: 0px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: .4em;
+      right: 0;
+    }
+    #dog-div.left {
+      position: absolute;
+      top: 00px;
+      left: 300px;
+    }
+    #dog-div.right {
+      position: absolute;
+      top: 00px;
+      left: 800px;
+    }
+    #dog-div img {
+      height: 100px;
+      margin: 10px 0px 10px 0px;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="reveal">
-        <div class="slides">
-            <section>
-                <h1>{sarcasm}</h1>
-            </section>
-            <section>
-                <h1>Testing boo</h1>
-                <div class='boobox'>
-                    <img class='boo' src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
-                    <p>Test text</p>
-                </div>
-            </section>
-            <section>
-                <h1>
-                    What the heck is this
-                </h1>
-            </section>
-            <section>
-                <h1>
-                    Outline
-                </h1>
-            </section>
-            <section>
-                <h1>
-                    <code>lapply</code>
-                </h1>
-            </section>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>{sarcasm}</h1>
+      </section>
+      <section>
+        <h1>Testing boo</h1>
+        <div class='boobox'>
+          <img class='boo'
+            src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+          <p>Test text</p>
         </div>
+      </section>
+      <section data-markdown data-separator="===" data-separator-vertical="---">
+        ## What the heck is this
+        A paragraph with some text and a [link](http://hakim.se).
+        ```r
+        library(dplyr)
+        a = function() {}
+        Sys.info()
+        # This is a comment
+        ```
+        ===
+        ## Outline
+
+        Something for everyone
+
+        * Beginner: Functionals -- `lapply`
+        * Intermediate: Error handling
+        * Advanced: Python-in-R package integration
+      </section>
+      <section>
+        <section >
+          <h2>Functionals</h2>
+          <code>lapply</code>
+          <p style='position: relative; top: 3em;'>
+            Functions that accept a function as an argument, and return a vector
+          </p>
+        </section>
+        <section style='text-align: left;'>
+          <code>lapply</code>
+          <p>Function "<code>b</code>"</p>
+          <div style='position: relative; top: 100px; height: 500px'>
+            <h1 style='position: relative; top: 50px;margin-bottom: 15%;'>
+              <code>🐝(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</code> =
+            </h1>
+            <img class='fragment' src='https://www.loveyourdog.com/wp-content/uploads/2019/04/golden-retriever-900x500.jpg' style='
+            position: absolute;
+            top: -20px;
+            left: 220px;
+            height: 240px;'>
+            <img class='fragment' src='https://cdn4.littlethings.com/app/uploads/2016/03/dogbeesting_1-850x637.jpg' style='
+            position: absolute;
+            top: -20px;
+            left: 820px;
+            height: 240px;
+            '>
+          </div>
+        </section>
+        <section style='text-align: left;'>
+          <code>lapply</code>
+          <div style='position: relative; top: 100px;'>
+            <h2 style='position: relative; top: 200px'>
+              <code>lapply(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, 🐝)</code> =
+            </h2>
+          <div id='dog-div' class='left fragment'>
+              <img src='https://www.loveyourdog.com/wp-content/uploads/2019/04/golden-retriever-900x500.jpg'>
+              <img src='https://th.bing.com/th/id/OIP.S_sXMPnNg84FXkJOycsQOgHaFj?pid=Api&rs=1'>
+              <img src='https://s.hdnux.com/photos/01/04/64/45/18041186/3/rawImage.jpg'>
+              <img src='https://www.petguide.com/wp-content/uploads/2013/02/beagle-1.jpg'>
+          </div>
+          <div id='dog-div' class='right fragment'>
+              <img src='https://cdn4.littlethings.com/app/uploads/2016/03/dogbeesting_1-850x637.jpg'>
+              <img src='https://i.redd.it/ckpoyh0qp1qz.jpg'>
+              <img src='https://dnl7t01l0fo05.cloudfront.net/wp-content/uploads/2016/10/cat-dog-beesting-5.png'>
+              <img src='https://1.bp.blogspot.com/-l4Wf3sGC4Is/WTvVS7xeiYI/AAAAAAAAOFE/7s88AO64n9QcAJSzNH3aHijG0M3trr3hwCLcB/s1600/25c690866970751462c211cd5a021d5c.jpg'>
+          </div>
+          </div>
+        </section>
+        <section style='text-align: left;'>
+          <code>lapply</code>
+          <pre><code class='r hljs' data-trim data-line-numbers="2|3|4|5|7">
+sarcastic = function(text) {
+    letters = strsplit(text, split = '')
+    lEtTeRs = lapply(letters, FUN = function(each_vec_element){
+        vec = lapply(each_vec_element, function(each_letter) {
+            return(randcase()(each_letter))
+        })
+        return(paste0(vec, collapse = ''))
+    })
+    if (length(lEtTeRs) == 1) {
+        return(lEtTeRs[[1]])
+    } else {
+        return(as.character(lEtTeRs))
+    }
+}
+</code></pre>
+        </section>
+      </section>
+      </section>
+
+      <section data-markdown data-separator="===" data-separator-vertical="---">
+        ## Error handling
+        ---
+        ## Sarcastic errors
+        ---
+        ## Prank: demoralizing errors
+        ===
+        ## Python Integration Within R Packages
+        ---
+        ## Where do I put my python scripts?
+
+        * `inst`
+
+      </section>
     </div>
-    <script>
-        Reveal.initialize({
-            plugins: [RevealMarkdown]
-        });
+  </div>
+  <script>
+    Reveal.initialize({
+      plugins: [RevealMarkdown, RevealHighlight],
+      hash: true,
+      slideNumber: true,
+      center: false
+    });
 
-        textTransform = function(text) {
-            let result = '';
+    textTransform = function (text) {
+      let result = '';
 
-            for (let letter of text) {
-                test = Math.round(Math.random())
-                if (test === 1) {
-                    letter = letter.toUpperCase()
-                    result += letter
-                } else {
-                    letter = letter.toLowerCase()
-                    result += letter
-                }
-            }
-            return result
+      for (let letter of text) {
+        test = Math.round(Math.random())
+        if (test === 1) {
+          letter = letter.toUpperCase()
+          result += letter
+        } else {
+          letter = letter.toLowerCase()
+          result += letter
         }
+      }
+      return result
+    }
 
-        $(document).ready(function() {
-            $(".boobox").mouseenter(function() {
-                $("img").attr('src', '/assets/img/booleft.gif')
-            });
-            $(".boobox").mouseleave(function() {
-                $("img").attr('src', '/assets/img/boo.png')
-            });
-            $(".boobox p").mouseenter(function() {
-                $(this).data('defaultText', $(this).text())
-                $(this).text(textTransform($(this).text()))
-            });
-            $(".boobox p").mouseleave(function() {
-                $(this).text($(this).data("defaultText"))
-            })
-        });
-    </script>
+    $(document).ready(function () {
+      $(".boobox").mouseenter(function () {
+        $("img").attr('src', '/assets/img/booleft.gif')
+      });
+      $(".boobox").mouseleave(function () {
+        $("img").attr('src', '/assets/img/boo.png')
+      });
+      $(".boobox p").mouseenter(function () {
+        $(this).data('defaultText', $(this).text())
+        $(this).text(textTransform($(this).text()))
+      });
+      $(".boobox p").mouseleave(function () {
+        $(this).text($(this).data("defaultText"))
+      })
+    });
+  </script>
 </body>
