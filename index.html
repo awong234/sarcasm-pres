@@ -16,10 +16,6 @@
       height: 100px;
     }
 
-    .boobox {
-      border: 1px solid red;
-    }
-
     .reveal code {
       font-family: "Fira Code", "Consolas";
     }
@@ -75,7 +71,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section>
+      <section class='center'>
         <h1>{sarcasm}</h1>
       </section>
       <section>
@@ -152,8 +148,8 @@
           </div>
           </div>
         </section>
-        <section style='text-align: left;'>
-          <code>lapply</code>
+        <section style='text-align: left;' data-transition="slide-in none">
+          <code>R: lapply</code>
           <pre><code class='r hljs' data-trim data-line-numbers="2|3|4|5|7">
 sarcastic = function(text) {
     letters = strsplit(text, split = '')
@@ -171,23 +167,148 @@ sarcastic = function(text) {
 }
 </code></pre>
         </section>
+        <section style='text-align: left;' data-transition='none'>
+          <code>R: purrr</code>
+          <pre><code class='r hljs' data-trim data-line-numbers="3,4">
+sarcastic = function(text) {
+    letters = strsplit(text, split = '')
+    lEtTeRs = map(letters, function(each_vec_element){
+        vec = map(each_vec_element, function(each_letter) {
+            return(randcase()(each_letter))
+        })
+        return(paste0(vec, collapse = ''))
+    })
+    if (length(lEtTeRs) == 1) {
+        return(lEtTeRs[[1]])
+    } else {
+        return(as.character(lEtTeRs))
+    }
+}
+</code></pre>
+        </section>
+        <section style='text-align: left;'>
+          <code>Python: List comprehension</code>
+          <pre><code class='python hljs' data-trim data-line-numbers="2|3|4">
+            text_split = split_characters(text)
+            sarcastic_text = [''.join(
+                    [randcase(char) for char in word]
+                  ) for word in text_split]
+            return(sarcastic_text)
+          </code></pre>
+        </section>
+        <section style='text-align: left;'>
+          <div class='boobox'>
+            <code>Javascript: <span class='hljs-keyword'>for</span> loop</code>
+            <img class='boo' style="position: absolute; left: 10%; top: 100%"
+              src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+            <img class='boo' style="position: absolute; left: 100%;"
+              src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+            <img class='boo' style="position: absolute; left: -10%; bottom: 20%;"
+              src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+          </div>
+            <pre><code class='js hljs' data-trim>
+                        textTransform = function (text) {
+                        let result = '';
+
+                        for (let letter of text) {
+                          test = Math.round(Math.random())
+                          if (test === 1) {
+                            letter = letter.toUpperCase()
+                            result += letter
+                          } else {
+                            letter = letter.toLowerCase()
+                            result += letter
+                          }
+                        }
+                          return result
+                        }
+            </code></pre>
+        </section>
       </section>
       </section>
+      <section>
+        <section class='center'>
+          <h2>Error handling</h2>
+        </section>
+        <section data-markdown>
+          <script type='text/template'>
+            ## Error handling
 
-      <section data-markdown data-separator="===" data-separator-vertical="---">
-        ## Error handling
-        ---
-        ## Sarcastic errors
-        ---
-        ## Prank: demoralizing errors
-        ===
-        ## Python Integration Within R Packages
-        ---
-        ## Where do I put my python scripts?
+            Options:
 
-        * `inst`
+            * `NULL` (default)
+            * `recover`
+            * `browser`
+            * `traceback`
+            * Something else ... ? <!-- .element: class="fragment" data-fragment-index="2" -->
 
+            ```R
+            # Set special error handling behavior
+            options(error = recover)
+            ```
+          </script>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <pre><code class='R hljs' data-trim>
+            > # Set special error handling behavior
+            > options(error = recover)
+            > recover
+          </code></pre>
+          <pre class='fragment'>
+            <code class="R hljs" data-trim>
+              function () {
+              if (.isMethodsDispatchOn()) {
+                tState <- tracingState(FALSE)
+                on.exit(tracingState(tState))
+              }
+              calls <- sys.calls()
+              from <- 0L
+              ...
+            } </code>
+            </code>
+          </pre>
+          <pre class = 'fragment'><code class="R hljs" data-trim>
+            options(show.error.messages = FALSE)
+          </code></pre>
+        </section>
+        <section class="center" data-transition="fade-in slide-out">
+          <p class="r-fit-text">🤔</p>
+        </section>
+        <section>
+          <h2>Sarcastic errors</h2>
+          <pre><code data-trim class='r hljs' data-line-numbers="|6">
+            sarcastic_errors = function(silent = FALSE) {
+              sarc_err = function() {
+                err = gsub(pattern = '\\n(?!.*\\n)', replacement = '', x = geterrmessage(), perl = TRUE)
+                message(sarcastic(err))
+              }
+              options(show.error.messages = FALSE, error = sarc_err)
+              if (! silent) {
+                message("To reset, restart your R session, or run the following:")
+                message("options(show.error.messages = TRUE, error = NULL)")
+              }
+            }
+          </code></pre>
+        </section>
+        <section data-markdown data-separator="===" data-separator-vertical="---">
+
+          ---
+          ## Sarcastic errors
+          ---
+          ## Prank: demoralizing errors
+          ===
+          ## Python Integration Within R Packages
+          ---
+          ## Where do I put my python scripts?
+
+          * `inst`
+
+        </section>
+        <section>
+          test
+        </section>
       </section>
+
     </div>
   </div>
   <script>
@@ -221,11 +342,11 @@ sarcastic = function(text) {
       $(".boobox").mouseleave(function () {
         $("img").attr('src', '/assets/img/boo.png')
       });
-      $(".boobox p").mouseenter(function () {
+      $(".boobox p, .boobox code").mouseenter(function () {
         $(this).data('defaultText', $(this).text())
         $(this).text(textTransform($(this).text()))
       });
-      $(".boobox p").mouseleave(function () {
+      $(".boobox p, .boobox code").mouseleave(function () {
         $(this).text($(this).data("defaultText"))
       })
     });
