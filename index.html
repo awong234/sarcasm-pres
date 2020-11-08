@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="highlightjs/dracula.css">
   <script src="reveal.js/dist/reveal.js"></script>
   <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
   <script src="reveal.js/plugin/highlight/highlight.js"></script>
   <script src="jquery/jquery.js"></script>
   <style>
@@ -16,8 +17,24 @@
       height: 100px;
     }
 
+    .headline {
+      text-align: left;
+      margin-bottom: 0px;
+    }
+
+    .subheadline {
+      text-align: left;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 0px;
+    }
+
     .reveal code {
       font-family: "Fira Code", "Consolas";
+    }
+
+    .reveal .errcode {
+      color: red !important;
     }
 
     #dog-div {
@@ -73,6 +90,9 @@
     <div class="slides">
       <section class='center'>
         <h1>{sarcasm}</h1>
+      </section>
+      <section class='center'>
+        <h1>{mocker}</h1>
       </section>
       <section>
         <h1>Testing boo</h1>
@@ -149,7 +169,7 @@
           </div>
         </section>
         <section style='text-align: left;' data-transition="slide-in none">
-          <code>R: lapply</code>
+          <p class='headline'><code>R: lapply</code></p>
           <pre><code class='r hljs' data-trim data-line-numbers="2|3|4|5|7">
 sarcastic = function(text) {
     letters = strsplit(text, split = '')
@@ -168,7 +188,7 @@ sarcastic = function(text) {
 </code></pre>
         </section>
         <section style='text-align: left;' data-transition='none'>
-          <code>R: purrr</code>
+          <p class='headline'><code>R: purrr</code></p>
           <pre><code class='r hljs' data-trim data-line-numbers="3,4">
 sarcastic = function(text) {
     letters = strsplit(text, split = '')
@@ -227,10 +247,10 @@ sarcastic = function(text) {
       </section>
       </section>
       <section>
-        <section class='center'>
+        <section class='center' data-transition="slide-in fade-out">
           <h2>Error handling</h2>
         </section>
-        <section data-markdown>
+        <section data-markdown data-auto-animate data-auto-animate-duration=0.5 data-transition="fade-in slide-out">
           <script type='text/template'>
             ## Error handling
 
@@ -242,21 +262,21 @@ sarcastic = function(text) {
             * `traceback`
             * Something else ... ? <!-- .element: class="fragment" data-fragment-index="2" -->
 
-            ```R
+            ```R <!-- .element: data-id='optserr'-->
             # Set special error handling behavior
             options(error = recover)
             ```
           </script>
         </section>
-        <section data-transition="slide-in fade-out">
-          <pre><code class='R hljs' data-trim>
-            > # Set special error handling behavior
-            > options(error = recover)
-            > recover
+        <section data-transition="slide-in fade-out" data-auto-animate data-auto-animate-duration=0.5>
+          <pre><code data-id='optserr' class='R hljs' data-trim>
+            # Set special error handling behavior
+            options(error = recover)
           </code></pre>
-          <pre class='fragment'>
-            <code class="R hljs" data-trim>
-              function () {
+          <pre class='fragment'><code class="R hljs" data-trim>
+            > recover
+
+            function () {
               if (.isMethodsDispatchOn()) {
                 tState <- tracingState(FALSE)
                 on.exit(tracingState(tState))
@@ -264,9 +284,7 @@ sarcastic = function(text) {
               calls <- sys.calls()
               from <- 0L
               ...
-            } </code>
-            </code>
-          </pre>
+            } </code></pre>
           <pre class = 'fragment'><code class="R hljs" data-trim>
             options(show.error.messages = FALSE)
           </code></pre>
@@ -276,10 +294,13 @@ sarcastic = function(text) {
         </section>
         <section>
           <h2>Sarcastic errors</h2>
-          <pre><code data-trim class='r hljs' data-line-numbers="|6">
+          <pre><code data-trim class='r hljs' data-line-numbers="|9|2-8|3|4-5|7">
             sarcastic_errors = function(silent = FALSE) {
               sarc_err = function() {
-                err = gsub(pattern = '\\n(?!.*\\n)', replacement = '', x = geterrmessage(), perl = TRUE)
+                err = gsub(x = geterrmessage(),
+                           pattern = '\\n(?!.*\\n)',
+                           replacement = '',
+                           perl = TRUE)
                 message(sarcastic(err))
               }
               options(show.error.messages = FALSE, error = sarc_err)
@@ -289,31 +310,57 @@ sarcastic = function(text) {
               }
             }
           </code></pre>
+          <aside class='notes'>
+            * Load all
+            * Create error using matrix
+            * Debug sarcastic errors
+            * Launch sarcastic errors
+          </aside>
         </section>
-        <section data-markdown data-separator="===" data-separator-vertical="---">
-
-          ---
-          ## Sarcastic errors
-          ---
-          ## Prank: demoralizing errors
-          ===
-          ## Python Integration Within R Packages
-          ---
-          ## Where do I put my python scripts?
-
-          * `inst`
-
+        <section style="text-align: left;">
+          <code>Sarcastic errors</code>
+          <pre><code class="R hljs" data-trim>
+            > a = matrix
+            > a[10]</code></pre>
+          <pre class='fragment'><code class='errcode text hljs'>erROr iN A[10] : ObjECt OF type 'cloSuRE' iS NoT SUbsetTABLE</code></pre>
+          <pre class='fragment'><code class="R hljs" data-trim>
+            > a[10]</code></pre>
+          <pre class='fragment'><code class='errcode text hljs'>ErROR in A[10] : OBJeCT OF tYpE 'cLosURe' Is noT SUbSeTTABle</code></pre>
+          <pre class='fragment'><code class="R hljs" data-trim>
+            > a[10]</code></pre>
+          <pre class='fragment'><code class='errcode text hljs'>erRoR in A[10] : objeCt of type 'ClOSuRe' IS NOT sUBSetTaBle</code></pre>
+          <pre class='fragment'><code class="R hljs" data-trim>
+            > a[10]</code></pre>
+          <div class='boobox fragment'>
+            <pre><code class='errcode text hljs'>ErRoR in a[10] : OBjeCT oF TYpe 'cLoSuRe' is nOt SUBsETtaBLE</code></pre>
+            <img class='boo' style="position: absolute; left: -10%; bottom: -5%;"
+              src='http://vignette1.wikia.nocookie.net/brutalmario/images/7/7c/Boo.png/revision/latest?cb=20150617073957'>
+          </div>
         </section>
         <section>
-          test
+          <!-- BLANK FOR PAUSE -->
         </section>
-      </section>
+        <section class='center'>
+          <h1><code>{praise}</code></h1>
+        </section>
+        <section>
+          <p class='headline'><code>{praise}</code></p>
+        </section>
+        <section class='center'>
+          <h2>Demoralizing errors</h2>
+        </section>
+        <section style="text-align: left;">
+          <p style="margin-bottom: 0px;"><code>Demoralizing errors</code></p>
+          <p style="margin-top: 0px; margin-bottom: 0px;"><code style="font-size: 50%;">Prank your friends</code></p>
+
+        </section>
+      </section> <!-- END PRESENTATION -->
 
     </div>
   </div>
   <script>
     Reveal.initialize({
-      plugins: [RevealMarkdown, RevealHighlight],
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       hash: true,
       slideNumber: true,
       center: false
