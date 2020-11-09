@@ -103,7 +103,10 @@
       </section>
       <section class='center' data-transition="slide-in none">
         <h1>{mocker}</h1>
-        <img id='docker-whale' src='assets/img/docker.png'>
+        <div id="whale-box">
+          <img id='docker-whale' src='assets/img/docker.png'>
+        </div>
+
       </section>
       <section>
         <section >
@@ -431,13 +434,80 @@ sarcastic = function(text) {
       })
 
       // Handle docker whale rotation
-      $('#docker-whale').click(function() {
-        $(this).css("animation", "roll 0.5s")
-               .css("transform", "rotate(180deg)")
-               .on
-      })
-
-
+      $('#whale-box').click(function() {
+        $("#docker-whale").animate(
+        {deg: 180}, {
+          duration: 500,
+          step: function(now) {
+            $(this).css("transform", `rotate(${now}deg`)
+          },
+          complete: function() {
+            function randn_bm() {
+              var u = 0, v = 0;
+              while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+              while (v === 0) v = Math.random();
+              return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+            }
+            $(this).attr("src", "assets/img/whale_no_blocks.png").css("transform", "rotate(180deg)")
+            $("#whale-box")
+              .append("<img id='block-1'src='assets/img/block.png'>")
+              .append("<img id='block-2'src='assets/img/block.png'>")
+              .append("<img id='block-3'src='assets/img/block.png'>")
+              .append("<img id='block-4'src='assets/img/block.png'>")
+              .append("<img id='block-5'src='assets/img/block.png'>")
+              .append("<img id='block-6'src='assets/img/block.png'>")
+              .append("<img id='block-7'src='assets/img/block.png'>")
+              .append("<img id='block-8'src='assets/img/block.png'>")
+              .append("<img id='block-9'src='assets/img/block.png'>")
+            $("#block-1")
+              .css('position', 'absolute')
+              .css('bottom', '163px')
+              .css("right", "337px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-2")
+              .css('position', 'absolute')
+              .css('bottom', '163px')
+              .css("right", "378px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-3")
+              .css('position', 'absolute')
+              .css('bottom', '163px')
+              .css("right", "419px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-4")
+              .css('position', 'absolute')
+              .css('bottom', '163px')
+              .css("right", "460px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-5")
+              .css('position', 'absolute')
+              .css('bottom', '163px')
+              .css("right", "501px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-6")
+              .css('position', 'absolute')
+              .css('bottom', '124px')
+              .css("right", "460px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-7")
+              .css('position', 'absolute')
+              .css('bottom', '124px')
+              .css("right", "419px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-8")
+              .css('position', 'absolute')
+              .css('bottom', '124px')
+              .css("right", "378px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+            $("#block-9")
+              .css('position', 'absolute')
+              .css('bottom', '85px')
+              .css("right", "460px")
+              .animate({ deg: 360, top: 1000 }, { duration: randn_bm() * 3 + 1000, step: function (now) { $(this).css("transform", `rotate(${now/2}deg`) } })
+          }
+        }
+      );
+      });
     });
 
   </script>
