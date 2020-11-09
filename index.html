@@ -154,7 +154,7 @@
         </aside>
       </section>
       <section class='center'>
-        <blockquote>"That's because I'm SO thoughtful</blockquote>
+        <blockquote>"That's because I'm SO thoughtful"</blockquote>
         <div class='fragment'>
           <p>↑</p>
           <p>sarcasm</p>
@@ -199,8 +199,57 @@
           </aside>
         </div>
       </section>
-      <section> <!--OUTLINE-->
-
+      <section>
+        <section>
+          <img
+            src="https://i.cdn.turner.com/money/galleries/2007/news/0710/gallery.luxury_expensive_food/images/serendipity_dessert.jpg">
+          <aside class='notes'>
+            <h3>If we consider the former</h3>
+            <ul>
+              <li>High-quality</li>
+              <li>Really interesting</li>
+              <li>Creative</li>
+              <li>Probably expensive to hire</li>
+            </ul>
+          </aside>
+        </section>
+        <section>
+          <img
+            src="https://asset-americas.unileversolutions.com/content/dam/unilever/heart/united_states_of_america/online_comms_/product_enhanced_page/ice_cream/all/1209350_strawberry_shortcake_product_packshot-1243123-png.png.ulenscale.600x600.png">
+          <aside class='notes'>
+            <h3>This talk more like novelty ice cream</h3>
+            <ul>
+              <li>Juvenile</li>
+              <li>Not most groundbreaking</li>
+              <li>Fun (hopefully)</li>
+            </ul>
+            <h2>Go ahead turn off brain</h2>
+          </aside>
+        </section>
+      </section>
+      <section style="text-align: left;"> <!--OUTLINE-->
+        <h2>Outline</h2>
+        <p>Something for everyone</p>
+        <ul>
+          <li>
+            Beginner:
+            <ul style='font-size: 70%;'>
+              <li>Functionals: <code>lapply</code></li>
+            </ul>
+          </li>
+          <li>
+            Intermediate:
+            <ul style='font-size: 70%;'>
+              <li>Error handling</li>
+            </ul>
+          </li>
+          <li>
+            Int.-Adv.:
+            <ul style='font-size: 70%;'>
+              <li>Python package integration</li>
+            </ul>
+          </li>
+        </ul>
       </section>
       <section>
         <section >
@@ -270,7 +319,7 @@ sarcastic = function(text) {
 </code></pre>
         </section>
         <section style='text-align: left;' data-transition='none'>
-          <p class='headline'><code>R: purrr</code></p>
+          <p class='headline'><code>R: purrr::map</code></p>
           <pre><code class='r hljs' data-trim data-line-numbers="3,4">
 sarcastic = function(text) {
     letters = strsplit(text, split = '')
@@ -290,7 +339,7 @@ sarcastic = function(text) {
         </section>
         <section style='text-align: left;'>
           <code>Python: List comprehension</code>
-          <pre><code class='python hljs' data-trim data-line-numbers="2|3|4">
+          <pre><code class='python hljs' data-trim data-line-numbers="1|2|3|4">
             text_split = split_characters(text)
             sarcastic_text = [''.join(
                     [randcase(char) for char in word]
@@ -325,6 +374,10 @@ sarcastic = function(text) {
                           return result
                         }
             </code></pre>
+          <aside class='notes'>
+            <h2>Now we have a function that will randomly capitalize letters in a sentence.</h2>
+            <h2>Easy enough</h2>
+          </aside>
         </section>
       </section>
       </section>
