@@ -346,6 +346,18 @@ sarcastic = function(text) {
         </section>
         <section>
           <p class='headline'><code>{praise}</code></p>
+          <pre><code class="R hljs" data-trim>
+            > praise::praise("You are a ${adjective} student!")
+
+            [1] "You are a marvelous student!"
+          </code></pre>
+          <pre class='fragment'><code class="R hljs" data-trim>
+              > praise::praise("${exclamation}, ${creating} this ${rpackage} must have been tough!")
+          </code></pre>
+          <pre class='fragment'><code class="R hljs" data-trim>
+            [1] "hooray, making this software must have been tough!"
+          </code></pre>
+
         </section>
         <section class='center'>
           <h2>Demoralizing errors</h2>
@@ -353,7 +365,25 @@ sarcastic = function(text) {
         <section style="text-align: left;">
           <p style="margin-bottom: 0px;"><code>Demoralizing errors</code></p>
           <p style="margin-top: 0px; margin-bottom: 0px;"><code style="font-size: 50%;">Prank your friends</code></p>
-
+          <ol>
+            <li>
+              Download <code>{sarcasm}</code>
+                <pre><code class="R hljs" style="font-size: 60%; width: 600px;">remotes::install_github("https://github.com/awong234/sarcasm")</code></li>
+            </li>
+            <li>
+              Insert the following into their <code>.Rprofile</code>
+            </li>
+            <pre><code data-trim class="R hljs">
+              options('ridicule_probability' = 0.01)
+              sarcasm::demoralizing_errors(silent = TRUE)
+            </code></pre>
+            <li>
+              Wait!
+            </li>
+            <aside class='notes'>
+              <h1>Show demo</h1>
+            </aside>
+          </ol>
         </section>
       </section> <!-- END PRESENTATION -->
 
