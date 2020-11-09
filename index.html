@@ -411,9 +411,11 @@ sarcastic = function(text) {
         }
       }
       return result
-    }
+    };
 
     $(document).ready(function () {
+
+      // Handle booboxes & text casing randomization
       $(".boobox").mouseenter(function () {
         $("img").attr('src', '/assets/img/booleft.gif')
       });
@@ -427,6 +429,16 @@ sarcastic = function(text) {
       $(".boobox p, .boobox code").mouseleave(function () {
         $(this).text($(this).data("defaultText"))
       })
+
+      // Handle docker whale rotation
+      $('#docker-whale').click(function() {
+        $(this).css("animation", "roll 0.5s")
+               .css("transform", "rotate(180deg)")
+               .on
+      })
+
+
     });
+
   </script>
 </body>
