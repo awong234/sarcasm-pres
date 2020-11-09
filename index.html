@@ -48,25 +48,36 @@
     }
 
     #personnel-images {
-      display:flex;
-      flex-flow: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 500px;
-      height: 100px;
+      display: flex;           /* establish flex container */
+      flex-direction: row;  /* stack flex items vertically */
+      position: relative;
     }
 
     .personnel-image {
       height: 200px;
-      flex-shrink: 3;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+      /* flex-shrink: 3; */
     }
 
     .personnel-box {
       display: inline-block;
+      position: relative;
       text-align: center;
       align-content: center;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 20px;
+      margin-right: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .name-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
     }
 
     #dog-div {
@@ -149,13 +160,16 @@
           <p>sarcasm</p>
         </div>
       </section>
-      <section> <!---->
+      <section>
+
+      </section>
+      <section style='margin: 0px;'> <!---->
         <div id='#personnel-images'>
           <div class="personnel-box">
             <img class='personnel-image' name="Jim Hester" src='https://www.jimhester.com/authors/jim/avatar_huc31f2231087c3b3c81ce37002edd3500_51204_250x250_fill_q90_lanczos_center.jpg'>
           </div>
           <div class="personnel-box">
-            <img class='personnel-image' name="Noam Ross"  src='https://www.ecohealthalliance.org/wp-content/uploads/2016/02/NOAM_IMAGE4-300x178.jpg'>
+            <img class='personnel-image' name="Noam Ross"  src='https://d33wubrfki0l68.cloudfront.net/8f6785a2001657307326dd1de236df8a8972355c/8d0b1/img/team/noam_ross.png'>
           </div>
           <div class="personnel-box">
             <img class='personnel-image' name="Dirk Eddelbuettel" src='https://pbs.twimg.com/profile_images/509888693478248448/rvqUa5YA.jpeg'>
@@ -169,6 +183,20 @@
           <div class="personnel-box">
             <img class='personnel-image' name="Gábor Csárdi" src='https://avatars2.githubusercontent.com/u/660288?s=400&u=677db9b09ed7b9ca76a2fc24622a9ca433ce05d5&v=4'>
           </div>
+          <div class="personnel-box">
+            <img class='personnel-image' name="MikeFC (coolbutuseless)" src='https://pbs.twimg.com/profile_images/989812086241873920/yqpAScnS_400x400.jpg'>
+          </div>
+          <div class="personnel-box">
+            <img class='personnel-image' name="Jeroen Ooms" src='https://avatars1.githubusercontent.com/u/216319?s=400&u=bfe086cade8ccec09d43f3f2e1bb3b6304dc7ec6&v=4'>
+          </div>
+          <div class="personnel-box">
+            <img class='personnel-image' name="Tyler Morgan-Wall" src='https://pbs.twimg.com/profile_images/1225996483373273089/CqjN0Mbw_400x400.jpg'>
+          </div>
+          <aside class='notes'>
+            <p>Inspirations</p>
+            <p>I'm not any of these guys</p>
+            <h2>The real heroes</h2>
+          </aside>
         </div>
       </section>
       <section> <!--OUTLINE-->
@@ -503,9 +531,7 @@ sarcastic = function(text) {
       $('.personnel-image').mouseenter(function() {
         $(this).css("opacity", "0.2")
         console.log('Add text')
-        $(this).parent().append(`<p>${$(this).attr('name')}</p>`)
-        $(".personnel-box p")
-          .css('position', 'absolute')
+        $(this).parent().append(`<p class='name-text'>${$(this).attr('name')}</p>`)
       })
       $('.personnel-image').mouseleave(function() {
         $(this).css("opacity", "1")
