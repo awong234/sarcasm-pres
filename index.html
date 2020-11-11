@@ -11,11 +11,32 @@
   <script src="reveal.js/plugin/notes/notes.js"></script>
   <script src="reveal.js/plugin/highlight/highlight.js"></script>
   <script src="jquery/jquery.js"></script>
-  <script src="jquery-visible/jquery.visible.js"></script>
   <style>
     .boo {
       width: 100px;
       height: 100px;
+    }
+
+    #year2020 {
+      /* Start the shake animation and make the animation last for 0.5 seconds */
+      animation: shake 0.5s alternate;
+
+      /* When the animation is finished, start again */
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); color: gray;}
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg);}
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(-3px, -5px) rotate(-2deg); color: red;}
     }
 
     @keyframes roll {
@@ -36,7 +57,7 @@
       text-align: left;
       margin-top: 0px;
       margin-bottom: 0px;
-      font-size: 0px;
+      font-size: 80%;
     }
 
     .reveal code {
@@ -142,7 +163,23 @@
         </code></pre>
       </section>
       <section>
-        <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/252/994/032.jpg'>
+        <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/253/025/34d.jpg'>
+      </section>
+      <section class='center'>
+        <div style='display: flex; flex-direction: row; justify-content: space-around; align-items: center'>
+          <div style='display: inline-block; margin: 10px; padding: 20px'>
+            <h1>Intra-<span class='fragment'>word</span></h1>
+            <h1 class='fragment'>randomized</h1>
+            <h1 class='fragment'>casing</h1>
+          </div>
+          <div class='fragment' style="display: inline-block; margin: 10px; padding: 20px">
+            <h2>=</h2>
+          </div>
+          <div style='display: inline-block; margin: 10px; padding: 20px'>
+            <h2 class='fragment'>"Ridicule"</h2>
+            <h2 class='fragment'>"Mockery"</h2>
+          </div>
+        </div>
       </section>
       <section class='center' data-transition="slide-in none">
         <h1>{mocker}</h1>
@@ -160,42 +197,38 @@
           <p>sarcasm</p>
         </div>
       </section>
-      <section>
-
-      </section>
       <section style='margin: 0px;'> <!---->
         <div id='#personnel-images'>
           <div class="personnel-box">
             <img class='personnel-image' name="Jim Hester" src='https://www.jimhester.com/authors/jim/avatar_huc31f2231087c3b3c81ce37002edd3500_51204_250x250_fill_q90_lanczos_center.jpg'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="Noam Ross"  src='https://d33wubrfki0l68.cloudfront.net/8f6785a2001657307326dd1de236df8a8972355c/8d0b1/img/team/noam_ross.png'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="Dirk Eddelbuettel" src='https://pbs.twimg.com/profile_images/509888693478248448/rvqUa5YA.jpeg'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="Will Landau" src='https://avatars1.githubusercontent.com/u/1580860?s=460&u=9b14cae6929d15252528132aa529ed7c21642e9f&v=4'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="John Blischak" src='https://pbs.twimg.com/profile_images/1248266807644831744/4xmiA2Yj_400x400.jpg'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="Gábor Csárdi" src='https://avatars2.githubusercontent.com/u/660288?s=400&u=677db9b09ed7b9ca76a2fc24622a9ca433ce05d5&v=4'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="MikeFC (coolbutuseless)" src='https://pbs.twimg.com/profile_images/989812086241873920/yqpAScnS_400x400.jpg'>
           </div>
-          <div class="personnel-box">
-            <img class='personnel-image' name="Jeroen Ooms" src='https://avatars1.githubusercontent.com/u/216319?s=400&u=bfe086cade8ccec09d43f3f2e1bb3b6304dc7ec6&v=4'>
+          <div class="personnel-box fragment">
+            <img class='personnel-image' name="Miles McBain" src='https://pbs.twimg.com/profile_images/702995114075955200/8s0ystej_400x400.jpg'>
           </div>
-          <div class="personnel-box">
+          <div class="personnel-box fragment">
             <img class='personnel-image' name="Tyler Morgan-Wall" src='https://pbs.twimg.com/profile_images/1225996483373273089/CqjN0Mbw_400x400.jpg'>
           </div>
           <aside class='notes'>
-            <p>Inspirations</p>
-            <p>I'm not any of these guys</p>
-            <h2>The real heroes</h2>
+            <h2>We have Jim Hester in the audience tonight</h2>
+            <h2></h2>
           </aside>
         </div>
       </section>
@@ -228,8 +261,7 @@
         </section>
       </section>
       <section style="text-align: left;"> <!--OUTLINE-->
-        <h2>Outline</h2>
-        <p>Something for everyone</p>
+        <h2>Something for everyone</h2>
         <ul>
           <li>
             Beginner:
@@ -251,7 +283,15 @@
           </li>
         </ul>
       </section>
-      <section>
+      <section class='center'>
+        <h3 style='margin-bottom: 10%;'>Objective</h3>
+        <pre><code class='R hljs' data-trim>
+          > sarcastic("sample text")
+
+          [1] sAmPle teXT
+        </code></pre>
+      </section>
+      <section> <!--lapply section-->
         <section >
           <h2>Functionals</h2>
           <code>lapply</code>
@@ -271,7 +311,7 @@
             top: -20px;
             left: 220px;
             height: 240px;'>
-            <img class='fragment' src='https://cdn4.littlethings.com/app/uploads/2016/03/dogbeesting_1-850x637.jpg' style='
+            <img class='fragment' src='data:image/jpeg;base64,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' style='
             position: absolute;
             top: -20px;
             left: 820px;
@@ -292,7 +332,7 @@
               <img src='https://www.petguide.com/wp-content/uploads/2013/02/beagle-1.jpg'>
           </div>
           <div id='dog-div' class='right fragment'>
-              <img src='https://cdn4.littlethings.com/app/uploads/2016/03/dogbeesting_1-850x637.jpg'>
+              <img src='data:image/jpeg;base64,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'>
               <img src='https://i.redd.it/ckpoyh0qp1qz.jpg'>
               <img src='https://dnl7t01l0fo05.cloudfront.net/wp-content/uploads/2016/10/cat-dog-beesting-5.png'>
               <img src='https://1.bp.blogspot.com/-l4Wf3sGC4Is/WTvVS7xeiYI/AAAAAAAAOFE/7s88AO64n9QcAJSzNH3aHijG0M3trr3hwCLcB/s1600/25c690866970751462c211cd5a021d5c.jpg'>
@@ -346,6 +386,7 @@ sarcastic = function(text) {
                   ) for word in text_split]
             return(sarcastic_text)
           </code></pre>
+          <img src='assets/img/pysnark.png' class='fragment' style='position:absolute; left: 50%; top: 150%; transform: translate(-50%, -50%); margin-right: -50%;'>
         </section>
         <section style='text-align: left;'>
           <div class='boobox'>
@@ -377,11 +418,12 @@ sarcastic = function(text) {
           <aside class='notes'>
             <h2>Now we have a function that will randomly capitalize letters in a sentence.</h2>
             <h2>Easy enough</h2>
+            <h1>PICK A SIMPLE OBJECTIVE</h1>
+            <h2>you can take the problem with you.</h2>
           </aside>
         </section>
       </section>
-      </section>
-      <section>
+      <section> <!--Error handling section-->
         <section class='center' data-transition="slide-in fade-out">
           <h2>Error handling</h2>
         </section>
@@ -491,6 +533,29 @@ sarcastic = function(text) {
             <h1>That's fun; what else can we do?</h1>
           </aside>
         </section>
+        <section class='center' style='text-align: left;'>
+          <code class='headline'>Pranks</code>
+          <iframe width='100%' height='600vh' src="http://minimallysufficient.github.io/r/humor/2016/08/25/r-pranks.html"></iframe>
+        </section>
+        <section style='text-align: left;'>
+          <code class='headline'>evil.R |></code>
+          <code >Romain Francois</code>
+          <pre><code class="R hljs" data-trim>
+            # no information in error messages, just a shruggy
+            unlockBinding("stop", baseenv() )
+            assign("stop",
+              local({
+                function (..., call. = TRUE, domain = NULL) {
+                  .Internal(stop(FALSE, "\n\t¯\\_(ツ)_/¯\n"))
+                }
+              }),
+              pos = baseenv()
+            )
+          </code></pre>
+          <pre><code class="text hljs errcode" data-trim>
+            Error: ¯\_(ツ)_/¯
+          </code></pre>
+        </section>
         <section class='center'>
           <h1><code>{praise}</code></h1>
         </section>
@@ -507,14 +572,23 @@ sarcastic = function(text) {
           <pre class='fragment'><code class="R hljs" data-trim>
             [1] "hooray, making this software must have been tough!"
           </code></pre>
-
+        </section>
+        <section class='center'>
+          <h1 id="year2020" style='display: inline-block'>2020</h1>
+          <aside class='notes'>
+            <h1>This is 2020</h1>
+            <h1>We don't deserve nice things</h1>
+          </aside>
         </section>
         <section class='center'>
           <h2>Demoralizing errors</h2>
+          <aside class='notes'>
+            <h1>SHOW DEMO!!!!!</h1>
+          </aside>
         </section>
         <section style="text-align: left;">
           <p style="margin-bottom: 0px;"><code>Demoralizing errors</code></p>
-          <p style="margin-top: 0px; margin-bottom: 0px;"><code style="font-size: 50%;">Prank your friends</code></p>
+          <p style="margin-top: 0px; margin-bottom: 0px;"><code style="font-size: 7 0%;">Prank your friends</code></p>
           <ol>
             <li>
               Download <code>{sarcasm}</code>
@@ -530,14 +604,35 @@ sarcastic = function(text) {
             <li>
               Wait!
             </li>
-            <aside class='notes'>
-              <h1>Show demo</h1>
-            </aside>
           </ol>
         </section>
-      </section> <!-- END PRESENTATION -->
-
-    </div>
+      </section>
+      <section> <!--Python section-->
+        <section class='center'>
+          <h2>Python & <code>{reticulate}</code></h2>
+        </section>
+        <section style='text-align: left;'>
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="display: inline-block;">
+              <code class='headline'>Python in an R Package</code>
+            </div>
+            <div style="display: inline-block;">
+              <img src='assets/img/pysnark.png'>
+              <h3>Tips</h3>
+              <ul>
+                <li class = 'fragment'>Put your scripts | module in the <code style="color:orange">inst/</code> directory</li>
+                <li class = 'fragment'>Use <code style="color:orange">system.file</code> to reference your scripts | module</li>
+                <li class = 'fragment'>Use <code  style="color:orange">reticulate::import_from_path()</code> along with <code>system.file</code> to use your python scripts in an R session</li>
+              </ul>
+            </div>
+          </div>
+          <aside class='notes'>
+            <h1>DEMO R MARKDOWN</h1>
+            <h1>SHOW PYTHON MODULE</h1>
+          </aside>
+        </section>
+      </section>
+    </div> <!-- END PRESENTATION -->
   </div>
   <script>
     Reveal.initialize({
