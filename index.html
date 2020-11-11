@@ -166,6 +166,9 @@
         <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/253/025/34d.jpg'>
       </section>
       <section class='center'>
+        <iframe width=500px height=300px src="https://trends.google.com:443/trends/embed/explore/TIMESERIES?req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22%5C%22mocking%20spongebob%5C%22%22%2C%22geo%22%3A%22%22%2C%22time%22%3A%22today%2012-m%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D&tz=300&eq=date%3Dtoday%252012-m%26q%3D%2522mocking%2520spongebob%2522"></iframe>
+      </section>
+      <section class='center'>
         <div style='display: flex; flex-direction: row; justify-content: space-around; align-items: center'>
           <div style='display: inline-block; margin: 10px; padding: 20px'>
             <h1>Intra-<span class='fragment'>word</span></h1>
@@ -291,13 +294,13 @@
           [1] sAmPle teXT
         </code></pre>
       </section>
+      <section class='center' style='text-align: left;'>
+        <code class='headline'>Functionals</code>
+      </section>
       <section> <!--lapply section-->
         <section >
-          <h2>Functionals</h2>
-          <code>lapply</code>
-          <p style='position: relative; top: 3em;'>
-            Functions that accept a function as an argument, and return a vector
-          </p>
+          <blockquote style='margin-top: 150px; margin-bottom: 50px;'>Functions that accept a function as an argument, and return a vector as output</blockquote>
+          <p><code>lapply</code></p>
         </section>
         <section style='text-align: left;'>
           <code>lapply</code>
@@ -342,40 +345,43 @@
         <section style='text-align: left;' data-transition="slide-in none">
           <p class='headline'><code>R: lapply</code></p>
           <pre><code class='r hljs' data-trim data-line-numbers="2|3|4|5|7">
-sarcastic = function(text) {
-    letters = strsplit(text, split = '')
-    lEtTeRs = lapply(letters, FUN = function(each_vec_element){
-        vec = lapply(each_vec_element, function(each_letter) {
-            return(randcase()(each_letter))
-        })
-        return(paste0(vec, collapse = ''))
-    })
-    if (length(lEtTeRs) == 1) {
-        return(lEtTeRs[[1]])
-    } else {
-        return(as.character(lEtTeRs))
-    }
-}
-</code></pre>
+            sarcastic = function(text) {
+                letters = strsplit(text, split = '')
+                lEtTeRs = lapply(letters, FUN = function(each_vec_element){
+                    vec = lapply(each_vec_element, function(each_letter) {
+                        return(randcase()(each_letter))
+                    })
+                    return(paste0(vec, collapse = ''))
+                })
+                if (length(lEtTeRs) == 1) {
+                    return(lEtTeRs[[1]])
+                } else {
+                    return(as.character(lEtTeRs))
+                }
+            }
+            </code></pre>
         </section>
         <section style='text-align: left;' data-transition='none'>
           <p class='headline'><code>R: purrr::map</code></p>
           <pre><code class='r hljs' data-trim data-line-numbers="3,4">
-sarcastic = function(text) {
-    letters = strsplit(text, split = '')
-    lEtTeRs = map(letters, function(each_vec_element){
-        vec = map(each_vec_element, function(each_letter) {
-            return(randcase()(each_letter))
-        })
-        return(paste0(vec, collapse = ''))
-    })
-    if (length(lEtTeRs) == 1) {
-        return(lEtTeRs[[1]])
-    } else {
-        return(as.character(lEtTeRs))
-    }
-}
-</code></pre>
+            sarcastic = function(text) {
+                letters = strsplit(text, split = '')
+                lEtTeRs = map(letters, function(each_vec_element){
+                    vec = map(each_vec_element, function(each_letter) {
+                        return(randcase()(each_letter))
+                    })
+                    return(paste0(vec, collapse = ''))
+                })
+                if (length(lEtTeRs) == 1) {
+                    return(lEtTeRs[[1]])
+                } else {
+                    return(as.character(lEtTeRs))
+                }
+            }
+            </code></pre>
+          <aside class='notes'>
+
+          </aside>
         </section>
         <section style='text-align: left;'>
           <code>Python: List comprehension</code>
@@ -423,15 +429,13 @@ sarcastic = function(text) {
           </aside>
         </section>
       </section>
+      <section class='center' style='text-align: left;'>
+        <code class='headline'>Error handling</code>
+      </section>
       <section> <!--Error handling section-->
-        <section class='center' data-transition="slide-in fade-out">
-          <h2>Error handling</h2>
-        </section>
-        <section data-markdown data-auto-animate data-auto-animate-duration=0.5 data-transition="fade-in slide-out">
+        <section data-markdown data-auto-animate data-auto-animate-duration=0.5 >
           <script type='text/template'>
-            ## Error handling
-
-            Options:
+            ## Options
 
             * `NULL` (default)
             * `recover`
@@ -535,7 +539,7 @@ sarcastic = function(text) {
         </section>
         <section class='center' style='text-align: left;'>
           <code class='headline'>Pranks</code>
-          <iframe width='100%' height='600vh' src="http://minimallysufficient.github.io/r/humor/2016/08/25/r-pranks.html"></iframe>
+          <iframe id='rpranks-site' width='100%' height='600vh' src="http://minimallysufficient.github.io/r/humor/2016/08/25/r-pranks.html"></iframe>
         </section>
         <section style='text-align: left;'>
           <code class='headline'>evil.R |></code>
