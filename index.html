@@ -241,6 +241,11 @@
             <h2 class='fragment'>"Mockery"</h2>
           </div>
         </div>
+        <aside class='notes'>
+          <h2>Particular format persists</h2>
+          <h2>Internet adopted intraword randomized casing as a way to express ridicule</h2>
+          <h2>Gen-Z -- created a new mode of expression -- rich, albeit niche application</h2>
+        </aside>
       </section>
       <section class='center' data-transition="slide-in none">
         <h1>{mocker}</h1>
@@ -258,14 +263,14 @@
           <p>sarcasm</p>
         </div>
       </section>
-      <section class = 'center' data-background-image='assets/img/cp11-hester.png' data-background-transition="fade none">
+      <section class = 'center' data-background-image='assets/img/cp11-hester.png' data-background-transition="none">
           <aside class='notes'>
             <h2>How about Jim Hester's talk this morning</h2>
             <h1> THANKS FOR ODBC </h1>
             <h2>What a treat --</h2>
           </aside>
       </section>
-      <section class='center' data-background-image='assets/img/cp11-hester.png' data-background-transition="none fade">
+      <section class='center' data-background-image='assets/img/cp11-hester.png' data-background-transition="none">
         <section>
           <img
             src="https://i.cdn.turner.com/money/galleries/2007/news/0710/gallery.luxury_expensive_food/images/serendipity_dessert.jpg">
@@ -279,7 +284,7 @@
             </ul>
           </aside>
         </section>
-        <section>
+        <section data-background-transition='none'>
           <img
             src="https://asset-americas.unileversolutions.com/content/dam/unilever/heart/united_states_of_america/online_comms_/product_enhanced_page/ice_cream/all/1209350_strawberry_shortcake_product_packshot-1243123-png.png.ulenscale.600x600.png">
           <aside class='notes'>
@@ -293,7 +298,7 @@
           </aside>
         </section>
       </section>
-      <section style="text-align: left;"> <!--OUTLINE-->
+      <section style="text-align: left;" data-background-transition='none'> <!--OUTLINE-->
         <h2>Something for everyone</h2>
         <ul>
           <li>
@@ -533,6 +538,45 @@
           <aside class='notes'>
             <h1>SHOW DEMO!!!!!</h1>
           </aside>
+        </section>
+        <section style='text-align: left;'>
+          <code class='headline'>Demoralizing errors</code>
+          <pre style='font-size: 40%;'><code data-trim class='r hljs' data-line-numbers="|11|7|8|9">
+            demoralizing_errors = function(silent = FALSE) {
+              dem_error = function() {
+                  ridicule_proc = getOption('ridicule_probability')
+                  if (is.null(ridicule_proc)) ridicule_proc = 0.1
+                  err = gsub(pattern = '\\n(?!.*\\n)',
+                              replacement = '. ',
+                              x = geterrmessage(), perl = TRUE)
+                  message(err, appendLF = FALSE)
+                  message(ridicule(proc = ridicule_proc))
+              }
+              options(show.error.messages = FALSE, error = dem_error)
+          }
+          </code></pre>
+        </section>
+        <section style='text-align: left;'>
+          <code class='headline'>Ridicule</code>
+          <pre style='font-size: 40%;'><code data-trim class='r hljs' data-line-numbers="|11|12|13|14">
+            ridicule = function(hurt = NULL, proc = 0.1) {
+              n = 6
+              if (is.null(hurt)) {
+                  hurt = as.character(sample(seq(0,5), size = 1, prob = c(1-proc, rep(proc/(n-1), (n-1)))))
+              } else {
+                  hurt = as.character(sample(c(0,hurt), size = 1, prob = c(1-proc, proc)))
+              }
+              switch(hurt,
+                    '0' = invisible(NULL),
+                    '1' = praise("${adjective}, your computer remarked, in annoyance."),
+                    '2' = sarcastic(praise("${adjective}.")),
+                    '3' = sarcastic(praise("That was ${adjective}.")),
+                    '4' = sarcastic(praise("${exclamation}${exclamation} that was ${adverb} ${adjective}.")),
+                    '5' = sarcastic(praise("${exclamation} ${exclamation} ${exclamation} you're a ${adjective} coder."))
+                    )
+          }
+
+          </code></pre>
         </section>
         <section style="text-align: left;">
           <p style="margin-bottom: 0px;"><code>Demoralizing errors</code></p>
